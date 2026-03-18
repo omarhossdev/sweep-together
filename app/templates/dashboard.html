@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% set logged_in = true %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6">📝 My Todos</h2>
+
+    <!-- Add Todo Form -->
+    <form hx-post="/todos/" hx-target="#todo-list" hx-swap="innerHTML"
+          hx-on::after-request="this.reset()"
+          class="flex gap-3 mb-6">
+        <input type="text" name="title" placeholder="What needs to be done?"
+               required autofocus
+               class="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+        <button type="submit"
+                class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+            Add
+        </button>
+    </form>
+
+    <!-- Todo List (loaded via HTMX) -->
+    <div id="todo-list" hx-get="/todos/" hx-trigger="load" hx-swap="innerHTML">
+        <div class="text-center text-gray-400 py-8">Loading...</div>
+    </div>
+</div>
+{% endblock %}
