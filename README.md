@@ -1,8 +1,6 @@
-# HTMX + FastAPI Starter
+# 🧹 SweepTogether
 
-A modern hypermedia-driven web application starter built with **FastAPI**, **HTMX**, **Jinja2**, and **Tailwind CSS**. No JavaScript framework needed — just fast, server-rendered HTML with sprinkles of interactivity.
-
-## ✨ Features
+## ✨ Stack
 
 - ⚡ **FastAPI** backend with async support
 - 🔄 **HTMX** for dynamic interactions without writing JavaScript
@@ -19,13 +17,22 @@ A modern hypermedia-driven web application starter built with **FastAPI**, **HTM
 
 ```bash
 # Clone
-git clone https://github.com/kszongic/htmx-fastapi-starter.git
-cd htmx-fastapi-starter
+git clone https://github.com/omarhossdev/sweep-together.git
+cd sweep-together
 
+#=================
+# UV (Recommended)
+#=================
 # Install dependencies
-pip install -r requirements.txt
+uv sync
 
-# Run development server
+# Run for development
+uv run uvicorn app.main:app --reload --port 8000
+
+#=======================
+# OR use pip
+pip install -r requirements.txt
+# Run 
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -69,58 +76,9 @@ Visit [http://localhost:8000](http://localhost:8000)
 ├── Dockerfile
 ├── docker-compose.yml
 ├── tailwind.config.js
+├── pyproject.toml
 └── .env.example
 ```
-
-## 🔄 How HTMX Works Here
-
-Instead of building a JSON API + SPA, this starter uses HTMX to:
-
-1. **Swap HTML fragments** — Server returns rendered HTML, HTMX swaps it into the DOM
-2. **Inline editing** — Click to edit a todo, submit saves and swaps back
-3. **Delete with animation** — Remove items with CSS transitions
-4. **Form validation** — Server-side validation, errors rendered as HTML partials
-5. **Flash messages** — Toast notifications via HTMX out-of-band swaps
-
-No build step for JS. No virtual DOM. Just HTML over the wire.
-
-## 🎨 Tailwind CSS
-
-Tailwind is included via CDN for simplicity. For production, install and build:
-
-```bash
-npm install -D tailwindcss
-npx tailwindcss -i ./app/static/css/app.css -o ./app/static/css/output.css --watch
-```
-
-## 🐳 Docker
-
-```bash
-docker compose up --build
-```
-
-## 🧪 Testing
-
-```bash
-pytest tests/ -v
-```
-
-## 🔧 Configuration
-
-Copy `.env.example` to `.env` and configure:
-
-```
-SECRET_KEY=your-secret-key
-DATABASE_URL=sqlite:///./app.db
-DEBUG=true
-```
-
-## 📚 Resources
-
-- [HTMX Docs](https://htmx.org/docs/)
-- [FastAPI Docs](https://fastapi.tiangolo.com/)
-- [SQLModel Docs](https://sqlmodel.tiangolo.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
 
 ## License
 

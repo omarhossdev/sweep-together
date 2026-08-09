@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}HTMX + FastAPI{% endblock %}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}SweepTogether - Volunteer for greener environment{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/htmx.org@2.0.0"></script>
     <link rel="stylesheet" href="/static/css/app.css">
 </head>
 <body class="h-full" hx-boost="true">
     <nav class="bg-white shadow-sm border-b">
         <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/" class="text-xl font-bold text-indigo-600">⚡ HTMX+FastAPI</a>
+            <a href="/" class="text-xl font-bold text-indigo-600">🧹 SweepTogether</a>
             <div class="space-x-4">
                 {% if logged_in is defined and logged_in %}
-                    <a href="/dashboard" class="text-gray-600 hover:text-indigo-600">Dashboard</a>
-                    <a href="/auth/logout" class="text-gray-600 hover:text-red-600">Logout</a>
+                    <a href="/dashboard" class="btn">Dashboard</a>
+                    <a href="/auth/logout" class="btn">Logout</a>
                 {% else %}
-                    <a href="/login" class="text-gray-600 hover:text-indigo-600">Login</a>
-                    <a href="/register" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Sign Up</a>
+                    <a href="/login" class="btn btn-secondary">Login</a>
+                    <a href="/register" class="btn btn-primary">Sign Up</a>
                 {% endif %}
             </div>
         </div>
@@ -31,6 +32,8 @@
 
     <footer class="text-center text-gray-400 text-sm py-8">
         Built with FastAPI + HTMX + Tailwind CSS
+        <br />
+        <a href="https://www.github.com/omarhossdev/sweep-together" target="_blank">Source Code</a>
     </footer>
 
     <script src="/static/js/app.js"></script>

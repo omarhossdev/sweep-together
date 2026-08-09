@@ -13,7 +13,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="HTMX FastAPI Starter", debug=DEBUG, lifespan=lifespan)
+app = FastAPI(title="Sweep Together", debug=DEBUG, lifespan=lifespan)
 
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
