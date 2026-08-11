@@ -5,13 +5,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select
 from app.config import BASE_DIR
 from app.database import get_session
-from app.models.todo import Todo
 from app.auth import get_current_user_id
 
 router = APIRouter()
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 
+
+"""
 @router.get("/")
 async def list_todos(
     request: Request,
@@ -122,3 +123,4 @@ async def delete_todo(
     await session.delete(todo)
     await session.commit()
     return HTMLResponse("")
+"""

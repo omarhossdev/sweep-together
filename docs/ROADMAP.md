@@ -4,8 +4,9 @@
 
 - [ ] Users with secure auth
 - [ ] User profile pages
-- [ ] Events publishing
-- [ ] Join events functionality
+- [ ] Event adding
+- [ ] Event removing
+- [ ] Event joining
 - [ ] Homepage + Profile + Events
 - [ ] Admin page: Add, edit or remove users
 
